@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import './App.css';
 import Card from './components/Card';
+import Cart from './components/Cart';
 import { Button } from './components/ui/button';
 import { useAppContext } from './context/AppContext';
 
@@ -23,19 +24,21 @@ function App() {
   const decrementPage = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
   }
-  console.log(currentPage, maxPage);
 
 
 
   return (
     <main className="flex flex-col gap-6">
       <nav className="w-full h-14 flex gap-6 justify-end">
-        <Button className="font-bold">
-          <img src='shopping-bag.svg' alt='shopping bag' />
-          <h2>
-            Cart(No of items)
-          </h2>
-        </Button>
+        <Cart />
+        {/* <NavLink to="/checkout">
+          <Button className="font-bold rounded-full">
+            <img src='shopping-bag.svg' alt='shopping bag' />
+            <h2>
+              Cart({productsInCart.length})
+            </h2>
+          </Button>
+        </NavLink> */}
       </nav>
       <section className='w-full flex justify-between items-center'>
         <h1>Page: {currentPage}</h1>
@@ -46,13 +49,7 @@ function App() {
       </section>
       <section className="grid w-full grid-cols-4 gap-x-52 gap-y-10  place-items-center ">
         {products?.map((product) => (
-          <Card key={product.id}
-            title={product.title}
-            brand={product.brand}
-            images={product.images}
-            description={product.description}
-            price={product.price}
-            rating={product.rating}
+          <Card key={product.id} product={product}
           />
         ))}
       </section>
