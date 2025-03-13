@@ -1,9 +1,10 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import './App.css';
 import Card from './components/Card';
 import Cart from './components/Cart';
 import { Button } from './components/ui/button';
 import { useAppContext } from './context/AppContext';
+import { Toaster } from 'sonner';
 
 function App() {
   const { products,
@@ -23,22 +24,15 @@ function App() {
 
   const decrementPage = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
-  }
+  };
 
-
+  useEffect(() => window.scrollTo(0, 0), [currentPage]);
 
   return (
     <main className="flex flex-col gap-6">
-      <nav className="w-full h-14 flex gap-6 justify-end">
+      <Toaster position="top-right" richColors />
+      <nav className="w-full md:mb-10 mb-5 -mt-3.5 flex gap-6 justify-end">
         <Cart />
-        {/* <NavLink to="/checkout">
-          <Button className="font-bold rounded-full">
-            <img src='shopping-bag.svg' alt='shopping bag' />
-            <h2>
-              Cart({productsInCart.length})
-            </h2>
-          </Button>
-        </NavLink> */}
       </nav>
       <section className='w-full flex justify-between items-center'>
         <h1>Page: {currentPage}</h1>
@@ -47,11 +41,18 @@ function App() {
           <Button variant={"outline"} onClick={incrementPage} disabled={nextDisabled}>Next</Button>
         </div>
       </section>
-      <section className="grid w-full grid-cols-4 gap-x-52 gap-y-10  place-items-center ">
+      <section className="grid w-full xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 xl:gap-x-52 gap-x-20 gap-y-10  place-items-center px-5 ">
         {products?.map((product) => (
           <Card key={product.id} product={product}
           />
         ))}
+      </section>
+      <section className='w-full flex justify-between items-center'>
+        <h1>Page: {currentPage}</h1>
+        <div className='space-x-6'>
+          <Button variant={"outline"} onClick={decrementPage} disabled={prevDisabled}>Prev</Button>
+          <Button variant={"outline"} onClick={incrementPage} disabled={nextDisabled}>Next</Button>
+        </div>
       </section>
     </main>
   );

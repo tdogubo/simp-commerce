@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { IProduct } from "../lib/types";
+import { toast } from "sonner";
 
 
 
@@ -45,8 +46,10 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 setProducts(data.products);
 
             }
-
+            
+            
         } catch (e: unknown) {
+            toast.error("Oooops something went wrong");
             console.error(e)
         }
         return;

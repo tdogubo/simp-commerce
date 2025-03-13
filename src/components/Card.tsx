@@ -26,7 +26,6 @@ const Card = ({ product }: { product: IProduct }) => {
     <div className="flex flex-col shadow-sm h-[600px] w-[20rem] pt-3 px-3 gap-5">
       <Swiper images={product.images} className="h-3/5" />
       <section className="w-full h-2/5 space-y-5">
-
         <div className="w-full flex flex-col items-start text-left h-3/5">
           <div className="flex w-full justify-between">
             <h4 className="">{product.brand}</h4>
@@ -54,11 +53,10 @@ const Card = ({ product }: { product: IProduct }) => {
 
             </p>
           </div>
-          <Button className="" onClick={handleAddToCart}>
+          <Button className="w-[9.5rem]" onClick={handleAddToCart}>
             {found ? (
               <>REMOVE <Minus /></>
             ) : (
-              // <Plus />
               <>ADD TO CART <Plus /></>
             )}
           </Button>

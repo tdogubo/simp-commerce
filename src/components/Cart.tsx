@@ -60,7 +60,7 @@ const Cart = () => {
                     </div>
                     {productsInCart.length > 0 && (
                         <DrawerFooter>
-                            <NavLink to="/" >
+                            <NavLink to="/checkout" >
                                 <Button className={"w-full"}>Checkout</Button>
                             </NavLink>
                         </DrawerFooter>)}

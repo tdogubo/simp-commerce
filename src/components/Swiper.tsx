@@ -44,7 +44,7 @@ export const Swiper = ({ images, className }: { images: Array<string>, className
                 <DotButton
                     key={index}
                     onClick={() => onDotButtonClick(index)}
-                    className={`${index === selectedIndex ? ' fill-primary' : 'fill-[#D9D9D999]'}`}
+                    className={`${index === selectedIndex ? ' fill-primary' : 'fill-[#D9D9D999]'} size-2`}
                 />
             ))}
             </div>
