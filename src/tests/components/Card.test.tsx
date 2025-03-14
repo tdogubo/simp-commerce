@@ -6,7 +6,7 @@ import { MemoryRouter } from "react-router";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import Card from "../../components/Card";
 import { AppContext, AppProvider } from "../../context/AppContext";
-import { IProduct } from "../../lib/types";
+import { IContext, IProduct } from "../../lib/types";
 import { formatAmount } from "../../lib/utils";
 
 global.IntersectionObserver = class {
@@ -41,7 +41,7 @@ describe("Card Component", () => {
         thumbnail: "thumbnail1.jpg",
     }
 
-    const customRender = (ui: React.ReactElement, { providerProps }: { providerProps: unknown }) => {
+    const customRender = (ui: React.ReactElement, { providerProps }: { providerProps: IContext }) => {
         return render(
             <MemoryRouter>
                 <AppProvider>
