@@ -59,6 +59,8 @@ yarn dev
 
 The application will be available at `http://localhost:5173`.
 
+A live version of the application can also be found at `https://simp-commerce.vercel.app`.
+
 ### Running Tests
 
 To run the tests:
