@@ -12,7 +12,7 @@ import {
     type CarouselApi
 } from "@/components/ui/carousel";
 import { Circle } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "./ui/button.tsx";
 
 export const Swiper = ({ images, className }: { images: Array<string>, className?: string }) => {
     const [api, setApi] = React.useState<CarouselApi>()

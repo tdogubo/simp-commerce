@@ -2,11 +2,11 @@
 import { Minus, Plus } from "lucide-react";
 import { useCallback, useMemo } from "react";
 import ReactStars from "react-star-rating-component";
-import { useAppContext } from "../context/AppContext";
+import { useAppContext } from "../context/AppContext.tsx";
 import { IProduct } from "../lib/types";
 import { formatAmount } from "../lib/utils";
 import { Swiper } from "./Swiper";
-import { Button } from "./ui/button";
+import { Button } from "./ui/button.tsx";
 
 
 
@@ -23,7 +23,7 @@ const Card = ({ product }: { product: IProduct }) => {
 
 
   return (
-    <div className="flex flex-col shadow-sm h-[600px] w-[20rem] pt-3 px-3 gap-5">
+    <div className="flex flex-col shadow-sm h-[600px] w-[20rem] pt-3 px-3 gap-5" data-testid="card">
       <Swiper images={product.images} className="h-3/5" />
       <section className="w-full h-2/5 space-y-5">
         <div className="w-full flex flex-col items-start text-left h-3/5">
@@ -40,7 +40,6 @@ const Card = ({ product }: { product: IProduct }) => {
 
             </div>
           </div>
-
           <h1 className="font-bold">{product.title}</h1>
           <h4>
             {product.description}
@@ -48,12 +47,11 @@ const Card = ({ product }: { product: IProduct }) => {
         </div>
         <div className="w-full flex justify-center items-center gap-4 flex-wrap">
           <div className="flex min-w-[3rem] h-[3rem] items-center border shadow-xs rounded-sm px-5 text-wrap " >
-            <p className="">
+            <p data-testid="product-price">
               {amount}
-
             </p>
           </div>
-          <Button className="w-[9.5rem]" onClick={handleAddToCart}>
+          <Button className="w-[9.5rem]" onClick={handleAddToCart} data-testid="add-btn">
             {found ? (
               <>REMOVE <Minus /></>
             ) : (

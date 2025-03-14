@@ -1,54 +1,94 @@
-# React + TypeScript + Vite
+# Simp Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simp Commerce is an e-commerce application built with React, TypeScript, and Vite. This application provides a minimal setup to get React working in Vite with HMR and some ESLint rules. It includes features such as product listing, cart management, and checkout.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Product Listing
+- Cart Management
+- Checkout Process
+- Form Validation
+- Responsive Design
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- Vite
+- ESLint
+- Tailwind CSS
+- React Router
+- Vitest (for testing)
+- Testing Library (for testing)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js (>= 14.x)
+- npm (>= 6.x) or yarn (>= 1.x)
+
+### Installation
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/your-username/simp-commerce.git
+cd simp-commerce
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```sh
+npm install
+# or
+yarn install
+```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### Running the Application
+
+To start the development server:
+
+```sh
+npm run dev
+# or
+yarn dev
+```
+
+The application will be available at `http://localhost:3000`.
+
+### Running Tests
+
+To run the tests:
+
+```sh
+npm run test
+# or
+yarn test
+```
+
+## Folder Structure
+
+``` sh
+simp-commerce/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── context/
+│   ├── lib/
+│   ├── pages/
+│   ├── tests/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── ...
+├── .eslintrc.js
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```

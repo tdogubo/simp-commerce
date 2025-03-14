@@ -4,17 +4,17 @@ import { useForm } from "react-hook-form";
 import { NavLink } from "react-router";
 import { toast } from "sonner";
 import { z } from "zod";
-import { Button } from "../components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../components/ui/form";
-import { Input } from "../components/ui/input";
-import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
+import { Button } from "../components/ui/button.tsx";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../components/ui/form.tsx";
+import { Input } from "../components/ui/input.tsx";
+import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group.tsx";
 import { Toaster } from "../components/ui/sonner";
 
 const formSchema = z.object({
-    firstName: z.string().min(2).max(50),
-    lastName: z.string().min(2).max(50),
-    email: z.string().min(2).max(50).email({ message: "Invalid email format" }),
-    address: z.string().min(10).max(500),
+    firstName: z.string().min(2, { message:"First Name is required"}).max(50),
+    lastName: z.string().min(2, { message: "Last Name is required" }).max(50),
+    email: z.string().min(2, { message: "Email is required" }).max(50).email({ message: "Invalid email format" }),
+    address: z.string().min(10, { message: "Enter full address" }).max(500),
     payment_type: z.enum(["paystack", "flutterwave", "cash"], {
         required_error: "You need to select a payment type.",
     }),
@@ -55,8 +55,8 @@ const Checkout = () => {
                 </NavLink>
             </div>
             <h1>Checkout</h1>
-            <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-20 ">
+            <Form {...form} >
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-20 " data-testid="checkout-form">
                     <div className="flex md:flex-row flex-col justify-between items-start w-full gap-6">
                         <FormField
                             control={form.control}

@@ -1,9 +1,9 @@
 import { useEffect, useMemo } from 'react';
 import './App.css';
-import Card from './components/Card';
-import Cart from './components/Cart';
-import { Button } from './components/ui/button';
-import { useAppContext } from './context/AppContext';
+import Card from './components/Card.tsx';
+import Cart from './components/Cart.tsx';
+import { Button } from './components/ui/button.tsx';
+import { useAppContext } from './context/AppContext.tsx';
 import { Toaster } from 'sonner';
 
 function App() {

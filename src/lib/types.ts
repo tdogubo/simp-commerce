@@ -13,3 +13,13 @@ export interface IProduct {
   images: Array<string>;
   thumbnail: string;
 }
+
+export interface IContext {
+    addProduct: (value: { product: IProduct; }) => void;
+    removeProduct: (id: number) => void;
+    products: Array<IProduct>;
+    productsInCart: Array<{ product: IProduct }>;
+    currentPage: number;
+    setCurrentPage: React.Dispatch<number>;
+    maxPage: number;
+}

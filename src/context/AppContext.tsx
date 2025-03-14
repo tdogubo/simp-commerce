@@ -1,18 +1,9 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
-import { IProduct } from "../lib/types";
+import { IContext, IProduct } from "../lib/types";
 import { toast } from "sonner";
 
 
 
-interface IContext {
-    addProduct: (value: { product: IProduct; }) => void;
-    removeProduct: (id: number) => void;
-    products: Array<IProduct>;
-    productsInCart: Array<{ product: IProduct }>;
-    currentPage: number;
-    setCurrentPage: React.Dispatch<number>;
-    maxPage: number;
-}
 
 const AppContext = createContext<IContext>({
     addProduct: (): void => { },
